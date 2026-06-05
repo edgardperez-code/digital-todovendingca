@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/digital/"
+title = "TodoVending Digital"
+version = "1.0.0"
+id = "artifacts/digital"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/digital/" ]
+localPort = 18250
+
+[services.development]
+run = "pnpm --filter @workspace/digital run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/digital", "run", "build" ]
+publicDir = "artifacts/digital/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18250"
+BASE_PATH = "/digital/"
