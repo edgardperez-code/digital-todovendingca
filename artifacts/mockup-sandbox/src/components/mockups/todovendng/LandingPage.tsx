@@ -555,8 +555,8 @@ export function LandingPage() {
       <Navbar />
       <Hero />
       <Features />
-      <Pricing />
       <Subscription />
+      <Pricing />
       <Footer />
     </div>
   );
