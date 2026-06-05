@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://digital.todovendingca.com/sitemap.xml

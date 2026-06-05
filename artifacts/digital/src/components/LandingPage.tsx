@@ -17,6 +17,8 @@ import {
   TrendingUp,
   ExternalLink,
   ArrowUpRight,
+  HelpCircle,
+  ChevronDown,
 } from "lucide-react";
 
 function useScrollAnimation() {
@@ -72,7 +74,7 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Inicio", "Servicios", "Planes", "Suscripción"];
+  const links = ["Inicio", "Servicios", "Planes", "Suscripción", "FAQ"];
 
   return (
     <nav
@@ -687,8 +689,10 @@ function Portfolio() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                   <img
                     src={p.image}
-                    alt={`Captura del sitio ${p.name}`}
+                    alt={`Captura del sitio web ${p.name} (${p.category}) desarrollado por TodoVending Digital`}
                     loading="lazy"
+                    width={1280}
+                    height={800}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/0 to-slate-950/0 opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
@@ -760,7 +764,9 @@ function Portfolio() {
             <div className="overflow-y-auto bg-slate-950">
               <img
                 src={current.image}
-                alt={`Vista ampliada del sitio ${current.name}`}
+                alt={`Vista ampliada del sitio web ${current.name} desarrollado por TodoVending Digital`}
+                width={1280}
+                height={800}
                 className="w-full h-auto block"
               />
             </div>
@@ -771,8 +777,86 @@ function Portfolio() {
   );
 }
 
+function FAQ() {
+  const faqs = [
+    {
+      q: "¿Cuánto cuesta una página web profesional con TodoVending Digital?",
+      a: "TodoVending Digital ofrece tres planes: Web Presencial desde $249, Tienda Digital desde $449 y E-commerce Pro desde $649. Todos los proyectos inician con solo un 30% de anticipo.",
+    },
+    {
+      q: "¿Qué incluye una tienda online conectada a WhatsApp?",
+      a: "Incluye un catálogo dinámico de productos y un carrito de compras conectado directamente a tu WhatsApp. Tus clientes arman el pedido en la web y tú coordinas el pago por transferencia, Pago Móvil o Zelle, sin comisiones de pasarelas externas.",
+    },
+    {
+      q: "¿TodoVending Digital cobra comisiones por cada venta?",
+      a: "No. Las ventas se gestionan directamente por WhatsApp, así que no pagas comisiones de pasarelas de pago externas por ninguna transacción.",
+    },
+    {
+      q: "¿Ofrecen mantenimiento y actualizaciones de la página web?",
+      a: "Sí. El Plan de Evolución Continua, desde $35 a $50 al mes, incluye soporte, modificaciones mensuales, SEO, posicionamiento local (GEO) e inteligencia artificial optimizada (IAO).",
+    },
+    {
+      q: "¿Qué tipos de negocios atiende TodoVending Digital?",
+      a: "Trabajamos con clínicas, doctores, tiendas de ropa, restaurantes, empresas industriales y emprendedores. Cada web se diseña a medida según el sector y el público objetivo del negocio.",
+    },
+    {
+      q: "¿Cómo solicito una cotización?",
+      a: "Puedes solicitar una cotización gratuita por WhatsApp al +58 412-0830206. Respondemos con una propuesta adaptada a tu negocio y a tu presupuesto.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="py-24 bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <span className="inline-flex items-center gap-1.5 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            <HelpCircle className="w-3.5 h-3.5" />
+            Preguntas Frecuentes
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Preguntas Frecuentes
+          </h2>
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Respuestas claras sobre precios, planes y cómo trabajamos en TodoVending Digital.
+          </p>
+        </AnimatedSection>
+
+        <div className="space-y-3">
+          {faqs.map(({ q, a }, i) => (
+            <AnimatedSection key={q} delay={i * 80}>
+              <details className="group bg-slate-800/60 border border-slate-700/50 rounded-2xl px-6 open:border-blue-500/40 transition-colors">
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-white font-semibold text-base">
+                  <span>{q}</span>
+                  <ChevronDown className="w-5 h-5 text-blue-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" />
+                </summary>
+                <p className="text-slate-400 text-sm leading-relaxed pb-5 -mt-1">
+                  {a}
+                </p>
+              </details>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <AnimatedSection delay={120} className="text-center mt-12">
+          <p className="text-slate-400 text-sm mb-5">
+            ¿Tienes otra pregunta? Escríbenos y te respondemos al instante.
+          </p>
+          <a
+            href="https://wa.me/584120830206"
+            className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 hover:-translate-y-0.5"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Preguntar por WhatsApp
+          </a>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
-  const quickLinks = ["Inicio", "Servicios", "Planes", "Suscripción"];
+  const quickLinks = ["Inicio", "Servicios", "Planes", "Suscripción", "FAQ"];
 
   return (
     <footer className="bg-slate-950 border-t border-slate-800 pt-14 pb-8">
@@ -841,11 +925,14 @@ export function LandingPage() {
   return (
     <div className="bg-slate-900 min-h-screen font-sans antialiased">
       <Navbar />
-      <Hero />
-      <Features />
-      <Subscription />
-      <Pricing />
-      <Portfolio />
+      <main>
+        <Hero />
+        <Features />
+        <Subscription />
+        <Pricing />
+        <Portfolio />
+        <FAQ />
+      </main>
       <Footer />
     </div>
   );
