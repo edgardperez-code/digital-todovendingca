@@ -1,0 +1,47 @@
+Actúa como un desarrollador Frontend Senior y Diseñador UI/UX experto. Crea una Landing Page moderna, altamente profesional y corporativa para una agencia de desarrollo web llamada "TodoVending Digital". Utiliza React, Vite, Tailwind CSS y Lucide React para los íconos.
+
+1. DIRECTRICES DE DISEÑO Y UI:
+- Estilo: Tecnológico, serio, limpio y orientado a la conversión (Dark Mode moderno).
+- Colores: Fondo principal oscuro (Slate 900 o similar), tarjetas en gris oscuro (Slate 800), textos en blanco/gris claro. Acentos en azul eléctrico o verde neón para botones y llamados a la acción (CTAs).
+- Tipografía: Sans-serif moderna (Inter o Roboto).
+- Diseño 100% responsivo (Mobile-first).
+- Agrega animaciones suaves al hacer scroll y efectos hover en botones y tarjetas.
+
+2. ESTRUCTURA DE LA PÁGINA Y CONTENIDO:
+
+SECCIÓN A: Navbar (Fija en la parte superior)
+- Logo en texto: "TodoVending Digital" (con la palabra Digital en color de acento).
+- Enlaces: Inicio, Servicios, Planes, Suscripción.
+- Botón derecho: "Cotizar por WhatsApp".
+
+SECCIÓN B: Hero Section
+- Título principal (H1): "Lleva tu negocio al siguiente nivel digital."
+- Subtítulo: "En TodoVending Digital construimos tu sucursal más rentable: tu página web. Diseños rápidos, modernos y optimizados para vender."
+- Botones CTA: "Ver Planes" (Primario) y "Contáctanos" (Secundario).
+
+SECCIÓN C: ¿Qué Hacemos? (Grid de 4 tarjetas con íconos)
+- Tarjeta 1 (Ícono de Código): "Desarrollo Estratégico". Webs adaptadas a tu marca (clínicas, tiendas de ropa, empresas).
+- Tarjeta 2 (Ícono de Engranaje): "Automatización". Conectamos tu web con tus procesos diarios.
+- Tarjeta 3 (Ícono de IA/Cerebro): "IAO (Inteligencia Artificial Optimizada)". Mejoramos la carga y experiencia del usuario con tecnología de vanguardia.
+- Tarjeta 4 (Ícono de Teléfono/WhatsApp): "Ventas Directas". Carritos de compra conectados a tu WhatsApp para gestionar transferencias, Pago Móvil o Zelle, sin comisiones de pasarelas externas.
+
+SECCIÓN D: Nuestros Planes (Tabla de precios o 3 tarjetas destacadas)
+- Nota superior: "Todos los proyectos inician con solo un 30% de anticipo."
+- Plan 1: "Web Presencial" - $350. Ideal para: Doctores y emprendedores. Incluye: Landing page, Diseño Responsivo, Botón WhatsApp flotante, Formulario inteligente.
+- Plan 2 (Destacado/Borde de color): "Tienda Digital" - $550. Ideal para: Tiendas de ropa y catálogos. Incluye: Plan Presencial + Catálogo dinámico, Carrito conectado a WhatsApp, Panel de inventario.
+- Plan 3: "E-commerce Pro" - $750. Ideal para: Empresas consolidadas. Incluye: Tienda Digital + Registro de usuarios, Filtros avanzados, Reseñas, Estadísticas.
+
+SECCIÓN E: Suscripción de Crecimiento (Banner de ancho completo)
+- Título: "Plan de Evolución Continua (Desde $35 a $50 / mes)"
+- Texto: "Una web sin mantenimiento es un local cerrado. Garantizamos que tu sitio esté a la vanguardia."
+- Lista de beneficios: Soporte y modificaciones mensuales, SEO (Optimización de búsquedas), GEO (Posicionamiento Local) e IAO.
+
+SECCIÓN F: Footer
+- Enlaces rápidos, información de contacto (correo simulado admin@todovendingca.com) y texto de Copyright: "© 2026 TodoVending C.A. - División de Soluciones Digitales. Todos los derechos reservados."
+
+3. REQUISITOS TÉCNICOS:
+- Implementa componentes reutilizables de React.
+- Genera un diseño modular (Hero.jsx, Features.jsx, Pricing.jsx, etc.).
+- No utilices imágenes externas que puedan romperse, usa gradientes de Tailwind, divs con estilos o íconos grandes de Lucide React como apoyo visual.
+- El código debe estar listo para ejecutarse sin errores en el puerto 5173 o 3000.
+- Escribe todo el contenido en perfecto español.
