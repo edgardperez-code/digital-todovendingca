@@ -297,7 +297,7 @@ function Pricing() {
   const plans = [
     {
       name: "Web Presencial",
-      price: "$250",
+      price: "$249",
       ideal: "Doctores y emprendedores",
       featured: false,
       features: [
@@ -309,7 +309,7 @@ function Pricing() {
     },
     {
       name: "Tienda Digital",
-      price: "$450",
+      price: "$449",
       ideal: "Tiendas de ropa y catálogos",
       featured: true,
       features: [
@@ -321,7 +321,7 @@ function Pricing() {
     },
     {
       name: "E-commerce Pro",
-      price: "$650",
+      price: "$649",
       ideal: "Empresas consolidadas",
       featured: false,
       features: [
