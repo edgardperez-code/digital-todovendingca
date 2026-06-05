@@ -1,5 +1,5 @@
 kind = "web"
-previewPath = "/digital/"
+previewPath = "/"
 title = "TodoVending Digital"
 version = "1.0.0"
 id = "artifacts/digital"
@@ -11,7 +11,7 @@ version = "1.0.0"
 
 [[services]]
 name = "web"
-paths = [ "/digital/" ]
+paths = [ "/" ]
 localPort = 18250
 
 [services.development]
@@ -28,4 +28,4 @@ to = "/index.html"
 
 [services.env]
 PORT = "18250"
-BASE_PATH = "/digital/"
+BASE_PATH = "/"
