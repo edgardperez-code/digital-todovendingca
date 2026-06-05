@@ -229,6 +229,19 @@ function Features() {
       desc: "Webs adaptadas a tu marca (clínicas, tiendas de ropa, empresas). Cada línea de código pensada para convertir visitantes en clientes.",
       color: "from-blue-500 to-blue-600",
       glow: "group-hover:shadow-blue-500/20",
+      accent: "text-blue-400",
+      accentBg: "bg-blue-500/15",
+      detail: {
+        intro:
+          "No hacemos plantillas genéricas. Estudiamos tu negocio, tu competencia y a tu cliente ideal para construir una página web que trabaje para ti las 24 horas. Cada sección, color y botón está pensado con un objetivo: convertir visitantes en clientes reales.",
+        points: [
+          "Análisis previo de tu marca, sector y público objetivo",
+          "Arquitectura de información clara y enfocada en la conversión",
+          "Diseño responsivo a medida (no plantillas prefabricadas)",
+          "Código limpio y optimizado para velocidad y posicionamiento",
+          "Sectores: clínicas, tiendas de ropa, restaurantes, empresas y más",
+        ],
+      },
     },
     {
       icon: Settings2,
@@ -236,6 +249,19 @@ function Features() {
       desc: "Conectamos tu web con tus procesos diarios. Desde formularios inteligentes hasta integraciones con tus herramientas de gestión.",
       color: "from-violet-500 to-violet-600",
       glow: "group-hover:shadow-violet-500/20",
+      accent: "text-violet-400",
+      accentBg: "bg-violet-500/15",
+      detail: {
+        intro:
+          "Tu web puede hacer mucho más que mostrar información. Automatizamos tareas repetitivas para que ahorres tiempo y no pierdas ni un solo cliente. Desde que alguien llena un formulario hasta que recibes la notificación, todo fluye solo.",
+        points: [
+          "Formularios inteligentes que llegan directo a tu WhatsApp o correo",
+          "Respuestas y confirmaciones automáticas para tus clientes",
+          "Integración con hojas de cálculo, CRMs y herramientas de gestión",
+          "Recordatorios y citas automatizadas para servicios",
+          "Menos trabajo manual, más tiempo para hacer crecer tu negocio",
+        ],
+      },
     },
     {
       icon: Brain,
@@ -243,6 +269,19 @@ function Features() {
       desc: "Mejoramos la carga y experiencia del usuario con tecnología de vanguardia. Tu web más rápida e inteligente que nunca.",
       color: "from-cyan-500 to-cyan-600",
       glow: "group-hover:shadow-cyan-500/20",
+      accent: "text-cyan-400",
+      accentBg: "bg-cyan-500/15",
+      detail: {
+        intro:
+          "Aplicamos inteligencia artificial y las mejores prácticas de optimización para que tu web cargue en segundos y ofrezca una experiencia impecable. Una página rápida no solo gusta más: posiciona mejor en Google y vende más.",
+        points: [
+          "Optimización de velocidad de carga en todos los dispositivos",
+          "Imágenes y recursos comprimidos sin perder calidad",
+          "Experiencia de usuario fluida e intuitiva",
+          "Mejora continua basada en datos y comportamiento real",
+          "Tecnología de vanguardia que mantiene tu web a la última",
+        ],
+      },
     },
     {
       icon: MessageCircle,
@@ -250,8 +289,39 @@ function Features() {
       desc: "Carritos de compra conectados a tu WhatsApp para gestionar transferencias, Pago Móvil o Zelle, sin comisiones de pasarelas externas.",
       color: "from-green-500 to-green-600",
       glow: "group-hover:shadow-green-500/20",
+      accent: "text-green-400",
+      accentBg: "bg-green-500/15",
+      detail: {
+        intro:
+          "Vende directo, sin intermediarios y sin pagar comisiones a pasarelas externas. Tus clientes arman su carrito en la web y el pedido te llega a WhatsApp listo para coordinar el pago como tú prefieras: transferencia, Pago Móvil o Zelle.",
+        points: [
+          "Carrito de compras conectado directo a tu WhatsApp",
+          "Pagos por transferencia, Pago Móvil o Zelle",
+          "Sin comisiones de pasarelas de pago externas",
+          "Pedido detallado y ordenado en cada mensaje",
+          "Atención personalizada que cierra más ventas",
+        ],
+      },
     },
   ];
+
+  const [active, setActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [active]);
+
+  const current = active !== null ? features[active] : null;
+  const CurrentIcon = current?.icon;
 
   return (
     <section id="servicios" className="py-24 bg-slate-900 relative">
@@ -265,15 +335,16 @@ function Features() {
             ¿Qué Hacemos?
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
-            Soluciones digitales completas para hacer crecer tu negocio en el mundo online.
+            Soluciones digitales completas para hacer crecer tu negocio en el mundo online. Haz clic en cada servicio para conocer más.
           </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map(({ icon: Icon, title, desc, color, glow }, i) => (
             <AnimatedSection key={title} delay={i * 100}>
-              <div
-                className={`group relative bg-slate-800/60 border border-slate-700/50 hover:border-slate-600 rounded-2xl p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${glow}`}
+              <button
+                onClick={() => setActive(i)}
+                className={`group relative w-full text-left bg-slate-800/60 border border-slate-700/50 hover:border-slate-600 rounded-2xl p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${glow}`}
               >
                 <div
                   className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${color} mb-5 shadow-lg`}
@@ -283,12 +354,73 @@ function Features() {
                 <h3 className="text-white font-bold text-base mb-2 leading-snug">
                   {title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
-              </div>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">{desc}</p>
+                <span className="inline-flex items-center gap-1 text-blue-400 text-xs font-semibold opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all">
+                  Ver más
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </span>
+              </button>
             </AnimatedSection>
           ))}
         </div>
       </div>
+
+      {current && CurrentIcon && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          onClick={() => setActive(null)}
+        >
+          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm" />
+          <div
+            className="relative z-10 w-full max-w-lg max-h-[90vh] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`relative p-6 sm:p-8 bg-gradient-to-br ${current.color}`}>
+              <button
+                onClick={() => setActive(null)}
+                className="absolute top-4 right-4 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-black/20 hover:bg-black/35 text-white transition-colors"
+                aria-label="Cerrar"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm mb-4">
+                <CurrentIcon className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-white font-extrabold text-2xl leading-tight pr-10">
+                {current.title}
+              </h3>
+            </div>
+
+            <div className="overflow-y-auto p-6 sm:p-8">
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                {current.detail.intro}
+              </p>
+              <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+                ¿Qué incluye?
+              </h4>
+              <ul className="space-y-3 mb-8">
+                {current.detail.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm text-slate-300">
+                    <div className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${current.accentBg}`}>
+                      <Check className={`w-3 h-3 ${current.accent}`} />
+                    </div>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://wa.me/584120830206"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 text-sm"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Consultar por WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
