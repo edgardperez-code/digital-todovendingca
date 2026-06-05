@@ -15,6 +15,8 @@ import {
   Zap,
   Shield,
   TrendingUp,
+  ExternalLink,
+  ArrowUpRight,
 } from "lucide-react";
 
 function useScrollAnimation() {
@@ -483,6 +485,161 @@ function Subscription() {
   );
 }
 
+function Portfolio() {
+  const projects = [
+    {
+      name: "Incalca",
+      url: "https://www.incalca.com",
+      domain: "www.incalca.com",
+      image: "/__mockup/images/incalca.png",
+      category: "Empresa Industrial",
+      desc: "Sitio corporativo para una empresa especialista en intercambiadores de calor y calderas.",
+    },
+    {
+      name: "TodoVending CA",
+      url: "https://www.todovendingca.com",
+      domain: "www.todovendingca.com",
+      image: "/__mockup/images/todovendingca.png",
+      category: "Soluciones Vending",
+      desc: "Plataforma moderna para soluciones integrales en máquinas vending.",
+    },
+    {
+      name: "Fotos Party",
+      url: "https://www.fotosparty.com",
+      domain: "www.fotosparty.com",
+      image: "/__mockup/images/fotosparty.png",
+      category: "Fotografía de Eventos",
+      desc: "Web vibrante de fotografía profesional para fiestas y eventos.",
+    },
+  ];
+
+  const [active, setActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [active]);
+
+  const current = active !== null ? projects[active] : null;
+
+  return (
+    <section id="trabajos" className="py-24 bg-slate-900 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            Portafolio
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Nuestros Trabajos
+          </h2>
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Proyectos reales que ya están generando resultados. Haz clic en una imagen para verla más de cerca.
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((p, i) => (
+            <AnimatedSection key={p.name} delay={i * 120}>
+              <button
+                onClick={() => setActive(i)}
+                className="group relative w-full text-left bg-slate-800/60 border border-slate-700/50 hover:border-blue-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                  <img
+                    src={p.image}
+                    alt={`Captura del sitio ${p.name}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/0 to-slate-950/0 opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="inline-flex items-center gap-2 bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-900/50">
+                      <ArrowUpRight className="w-4 h-4" />
+                      Ver más de cerca
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <span className="inline-block text-blue-400 text-xs font-semibold uppercase tracking-wider mb-1.5">
+                    {p.category}
+                  </span>
+                  <h3 className="text-white font-bold text-lg mb-1">{p.name}</h3>
+                  <p className="text-slate-400 text-sm mb-3 leading-relaxed">{p.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 text-slate-500 text-xs font-medium">
+                    <Globe className="w-3.5 h-3.5" />
+                    {p.domain}
+                  </span>
+                </div>
+              </button>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+
+      {current && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          onClick={() => setActive(null)}
+        >
+          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm animate-[fadeIn_0.2s_ease-out]" />
+          <div
+            className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden flex flex-col animate-[fadeIn_0.25s_ease-out]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-slate-700 bg-slate-800/95 flex-shrink-0">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="flex gap-1.5 flex-shrink-0">
+                  <span className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <span className="flex items-center gap-2 text-slate-300 text-sm font-medium truncate">
+                  <Globe className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  {current.domain}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <a
+                  href={current.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span className="hidden sm:inline">Visitar sitio</span>
+                </a>
+                <button
+                  onClick={() => setActive(null)}
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 hover:text-white transition-colors"
+                  aria-label="Cerrar"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            <div className="overflow-y-auto bg-slate-950">
+              <img
+                src={current.image}
+                alt={`Vista ampliada del sitio ${current.name}`}
+                className="w-full h-auto block"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 function Footer() {
   const quickLinks = ["Inicio", "Servicios", "Planes", "Suscripción"];
 
@@ -557,6 +714,7 @@ export function LandingPage() {
       <Features />
       <Subscription />
       <Pricing />
+      <Portfolio />
       <Footer />
     </div>
   );
