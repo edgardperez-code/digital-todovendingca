@@ -297,7 +297,7 @@ function Pricing() {
   const plans = [
     {
       name: "Web Presencial",
-      price: "$350",
+      price: "$250",
       ideal: "Doctores y emprendedores",
       featured: false,
       features: [
@@ -309,7 +309,7 @@ function Pricing() {
     },
     {
       name: "Tienda Digital",
-      price: "$550",
+      price: "$450",
       ideal: "Tiendas de ropa y catálogos",
       featured: true,
       features: [
@@ -321,7 +321,7 @@ function Pricing() {
     },
     {
       name: "E-commerce Pro",
-      price: "$750",
+      price: "$650",
       ideal: "Empresas consolidadas",
       featured: false,
       features: [
@@ -385,7 +385,6 @@ function Pricing() {
 
                 <div className="mb-6">
                   <span className="text-4xl font-extrabold text-white">{price}</span>
-                  <span className="text-slate-400 text-sm ml-2">pago único</span>
                 </div>
 
                 <ul className="space-y-3 mb-8">
