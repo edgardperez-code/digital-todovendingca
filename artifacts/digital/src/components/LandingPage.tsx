@@ -106,7 +106,7 @@ function Navbar() {
 
           <div className="hidden md:block">
             <a
-              href="https://wa.me/584120830206"
+              href="https://wa.me/584120836206"
               className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 hover:-translate-y-0.5"
             >
               <MessageCircle className="w-4 h-4" />
@@ -136,7 +136,7 @@ function Navbar() {
             </a>
           ))}
           <a
-            href="https://wa.me/584120830206"
+            href="https://wa.me/584120836206"
             className="inline-flex items-center justify-center gap-2 bg-green-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg"
           >
             <MessageCircle className="w-4 h-4" />
@@ -198,7 +198,7 @@ function Hero() {
             <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
           <a
-            href="https://wa.me/584120830206"
+            href="https://wa.me/584120836206"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
           >
             <MessageCircle className="w-4 h-4 text-green-400" />
@@ -411,7 +411,7 @@ function Features() {
                 ))}
               </ul>
               <a
-                href="https://wa.me/584120830206"
+                href="https://wa.me/584120836206"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 text-sm"
@@ -533,7 +533,7 @@ function Pricing() {
                 </ul>
 
                 <a
-                  href="https://wa.me/584120830206"
+                  href="https://wa.me/584120836206"
                   className={`w-full inline-flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-200 text-sm ${
                     featured
                       ? "bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-900/50 hover:shadow-blue-500/40"
@@ -605,7 +605,7 @@ function Subscription() {
             </div>
 
             <a
-              href="https://wa.me/584120830206"
+              href="https://wa.me/584120836206"
               className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold px-10 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-900/50 hover:shadow-blue-500/40 hover:-translate-y-0.5"
             >
               <MessageCircle className="w-4 h-4" />
@@ -801,7 +801,7 @@ function FAQ() {
     },
     {
       q: "¿Cómo solicito una cotización?",
-      a: "Puedes solicitar una cotización gratuita por WhatsApp al +58 412-0830206. Respondemos con una propuesta adaptada a tu negocio y a tu presupuesto.",
+      a: "Puedes solicitar una cotización gratuita por WhatsApp al +58 412-0836206. Respondemos con una propuesta adaptada a tu negocio y a tu presupuesto.",
     },
   ];
 
@@ -843,7 +843,7 @@ function FAQ() {
             ¿Tienes otra pregunta? Escríbenos y te respondemos al instante.
           </p>
           <a
-            href="https://wa.me/584120830206"
+            href="https://wa.me/584120836206"
             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 hover:-translate-y-0.5"
           >
             <MessageCircle className="w-4 h-4" />
@@ -903,7 +903,7 @@ function Footer() {
               </li>
               <li className="flex items-center gap-3 text-slate-400 text-sm">
                 <MessageCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <a href="https://wa.me/584120830206" className="hover:text-green-400 transition-colors">
+                <a href="https://wa.me/584120836206" className="hover:text-green-400 transition-colors">
                   WhatsApp
                 </a>
               </li>
