@@ -20,6 +20,7 @@ import {
   HelpCircle,
   ChevronDown,
 } from "lucide-react";
+import { Intro } from "./Intro";
 
 function useScrollAnimation() {
   const ref = useRef<HTMLDivElement>(null);
@@ -924,6 +925,7 @@ function Footer() {
 export function LandingPage() {
   return (
     <div className="bg-slate-900 min-h-screen font-sans antialiased">
+      <Intro />
       <Navbar />
       <main>
         <Hero />
