@@ -831,7 +831,7 @@ function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors"
                 >
-                  Centro Comercial Venezuela, Local 11
+                  Centro Comercial Venezuela, Local 11, calle Nueva Esparta, Lechería, Anzoátegui, Venezuela
                 </a>
               </li>
             </ul>
