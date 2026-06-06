@@ -820,7 +820,7 @@ function Footer() {
               <li className="flex items-center gap-3 text-slate-400 text-sm">
                 <MessageCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
                 <a href="https://wa.me/584120836206" className="hover:text-green-400 transition-colors">
-                  WhatsApp
+                  +58 412-0836206
                 </a>
               </li>
               <li className="flex items-start gap-3 text-slate-400 text-sm">
