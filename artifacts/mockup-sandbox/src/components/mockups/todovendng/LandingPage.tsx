@@ -823,6 +823,17 @@ function Footer() {
                   WhatsApp
                 </a>
               </li>
+              <li className="flex items-start gap-3 text-slate-400 text-sm">
+                <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                <a
+                  href="https://maps.app.goo.gl/JuHxKWCBBZS8tYwS9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Centro Comercial Venezuela, Local 11
+                </a>
+              </li>
             </ul>
           </div>
         </div>
