@@ -49,6 +49,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Redirección www → non-www
+      if (window.location.hostname.indexOf("www.") === 0) {
+        window.location.replace(
+          "https://" + window.location.hostname.replace("www.", "") + window.location.pathname + window.location.search
+        );
+      }
+    </script>
 
     <script type="application/ld+json">
       {
