@@ -429,7 +429,7 @@ function Pricing() {
   const plans = [
     {
       name: "Web Presencial",
-      price: "$249",
+      price: "$349",
       ideal: "Doctores y emprendedores",
       featured: false,
       features: [
@@ -441,7 +441,7 @@ function Pricing() {
     },
     {
       name: "Tienda Digital",
-      price: "$449",
+      price: "$549",
       ideal: "Tiendas de ropa y catálogos",
       featured: true,
       features: [
@@ -453,7 +453,7 @@ function Pricing() {
     },
     {
       name: "E-commerce Pro",
-      price: "$649",
+      price: "$749",
       ideal: "Empresas consolidadas",
       featured: false,
       features: [
@@ -486,7 +486,7 @@ function Pricing() {
             <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
             <p className="text-blue-300 text-sm text-center font-medium">
               Todos los proyectos inician con solo un{" "}
-              <strong className="text-white">30% de anticipo</strong>.
+              <strong className="text-white">50% de anticipo</strong>.
             </p>
           </div>
         </AnimatedSection>

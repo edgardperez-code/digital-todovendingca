@@ -431,7 +431,7 @@ function Pricing() {
   const plans = [
     {
       name: "Web Presencial",
-      price: "$249",
+      price: "$349",
       ideal: "Doctores y emprendedores",
       featured: false,
       features: [
@@ -443,7 +443,7 @@ function Pricing() {
     },
     {
       name: "Tienda Digital",
-      price: "$449",
+      price: "$549",
       ideal: "Tiendas de ropa y catálogos",
       featured: true,
       features: [
@@ -455,7 +455,7 @@ function Pricing() {
     },
     {
       name: "E-commerce Pro",
-      price: "$649",
+      price: "$749",
       ideal: "Empresas consolidadas",
       featured: false,
       features: [
@@ -488,7 +488,7 @@ function Pricing() {
             <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
             <p className="text-blue-300 text-sm text-center font-medium">
               Todos los proyectos inician con solo un{" "}
-              <strong className="text-white">30% de anticipo</strong>.
+              <strong className="text-white">50% de anticipo</strong>.
             </p>
           </div>
         </AnimatedSection>
@@ -781,7 +781,7 @@ function FAQ() {
   const faqs = [
     {
       q: "¿Cuánto cuesta una página web profesional con TodoVending Digital?",
-      a: "TodoVending Digital ofrece tres planes: Web Presencial desde $249, Tienda Digital desde $449 y E-commerce Pro desde $649. Todos los proyectos inician con solo un 30% de anticipo.",
+      a: "TodoVending Digital ofrece tres planes: Web Presencial desde $349, Tienda Digital desde $549 y E-commerce Pro desde $749. Todos los proyectos inician con solo un 50% de anticipo.",
     },
     {
       q: "¿Qué incluye una tienda online conectada a WhatsApp?",
