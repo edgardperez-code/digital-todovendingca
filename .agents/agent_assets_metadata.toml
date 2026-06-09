@@ -6,3 +6,9 @@ id = "m2wREHhDc89xAsZN8Bz1v"
 uri = "file://artifacts/digital/public/sitemap.xml"
 type = "unspecified"
 title = "sitemap.xml — TodoVending Digital"
+
+[[outputs]]
+id = "jJFyYRfcDmcaGDte1GBrv"
+uri = "file://artifacts/digital/public/robots.txt"
+type = "text"
+title = "robots.txt — TodoVending Digital"
