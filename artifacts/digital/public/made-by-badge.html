@@ -1,0 +1,142 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║    BADGE "PÁGINA WEB CREADA POR" — TodoVending Digital       ║
+  ║    Agencia de desarrollo web | digital.todovendingca.com     ║
+  ╚══════════════════════════════════════════════════════════════╝
+
+  INSTRUCCIONES DE USO:
+  ─────────────────────
+  Copia el bloque <style> una sola vez en el <head> de tu página.
+  Luego copia el elemento <a class="tvd-badge ..."> donde quieras
+  mostrarlo (normalmente al final del <footer>).
+
+  Hay dos variantes:
+    · tvd-badge--dark  → para fondos oscuros
+    · tvd-badge--light → para fondos claros/blancos
+-->
+
+<!-- ── ESTILOS (pegar una vez en <head>) ─────────────────────── -->
+<style>
+  .tvd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  /* Variante oscura */
+  .tvd-badge--dark {
+    border: 1px solid #334155;
+    background: rgba(30, 41, 59, 0.6);
+    color: #94a3b8;
+    backdrop-filter: blur(8px);
+  }
+  .tvd-badge--dark:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(30, 41, 59, 0.9);
+    color: #cbd5e1;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.2);
+  }
+  .tvd-badge--dark .tvd-badge__brand {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  .tvd-badge--dark:hover .tvd-badge__brand { color: #93c5fd; }
+  .tvd-badge--dark .tvd-badge__icon-ext { color: #475569; }
+  .tvd-badge--dark:hover .tvd-badge__icon-ext { color: #60a5fa; }
+
+  /* Variante clara */
+  .tvd-badge--light {
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #64748b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .tvd-badge--light:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 4px 14px rgba(219, 234, 254, 0.8);
+    color: #475569;
+  }
+  .tvd-badge--light .tvd-badge__brand {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  .tvd-badge--light:hover .tvd-badge__brand { color: #3b82f6; }
+  .tvd-badge--light .tvd-badge__icon-ext { color: #cbd5e1; }
+  .tvd-badge--light:hover .tvd-badge__icon-ext { color: #60a5fa; }
+
+  /* Icono circular con gradiente */
+  .tvd-badge__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #22d3ee);
+    flex-shrink: 0;
+  }
+  .tvd-badge__icon-wrap svg { display: block; }
+
+  .tvd-badge__text { white-space: nowrap; }
+</style>
+
+<!-- ── VARIANTE OSCURA (para fondos oscuros) ──────────────────── -->
+<a
+  class="tvd-badge tvd-badge--dark"
+  href="https://digital.todovendingca.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="tvd-badge__icon-wrap">
+    <!-- Globe icon -->
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+  </span>
+  <span class="tvd-badge__text">
+    Página web creada por
+    <span class="tvd-badge__brand"> Digital.TodoVendingca.com</span>
+  </span>
+  <!-- External link icon -->
+  <svg class="tvd-badge__icon-ext" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    <polyline points="15 3 21 3 21 9"/>
+    <line x1="10" y1="14" x2="21" y2="3"/>
+  </svg>
+</a>
+
+
+<!-- ── VARIANTE CLARA (para fondos blancos/claros) ────────────── -->
+<a
+  class="tvd-badge tvd-badge--light"
+  href="https://digital.todovendingca.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="tvd-badge__icon-wrap">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+  </span>
+  <span class="tvd-badge__text">
+    Página web creada por
+    <span class="tvd-badge__brand"> Digital.TodoVendingca.com</span>
+  </span>
+  <svg class="tvd-badge__icon-ext" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    <polyline points="15 3 21 3 21 9"/>
+    <line x1="10" y1="14" x2="21" y2="3"/>
+  </svg>
+</a>
