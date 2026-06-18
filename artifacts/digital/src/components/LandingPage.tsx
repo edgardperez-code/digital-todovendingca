@@ -922,10 +922,27 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 text-center">
+        <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-4 text-center">
           <p className="text-slate-500 text-xs leading-relaxed">
             © 2026 TodoVending C.A. — División de Soluciones Digitales. Todos los derechos reservados.
           </p>
+          <a
+            href="https://digital.todovendingca.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/60 px-4 py-2 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-800 hover:shadow-lg hover:shadow-blue-900/20"
+          >
+            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-sm">
+              <Globe className="h-3 w-3 text-white" />
+            </span>
+            <span className="text-xs text-slate-400 transition-colors group-hover:text-slate-300">
+              Página web creada por{" "}
+              <span className="font-semibold text-blue-400 group-hover:text-blue-300">
+                Digital.TodoVendingca.com
+              </span>
+            </span>
+            <ExternalLink className="h-3 w-3 flex-shrink-0 text-slate-600 transition-colors group-hover:text-blue-400" />
+          </a>
         </div>
       </div>
     </footer>
