@@ -651,12 +651,12 @@ function Portfolio() {
       desc: "Sitio web gastronómico con menú digital, galería y reservas en línea.",
     },
     {
-      name: "Coi Infantil VE",
-      url: "https://coinfantilve.com",
-      domain: "coinfantilve.com",
-      image: "/__mockup/images/coinfantilve.png",
-      category: "Entretenimiento Infantil",
-      desc: "Plataforma de entretenimiento y moda infantil venezolana.",
+      name: "Psico Infantil VE",
+      url: "https://www.psicoinfantilve.com",
+      domain: "www.psicoinfantilve.com",
+      image: "/__mockup/images/psicoinfantilve.png",
+      category: "Psicología Infantil",
+      desc: "Plataforma de psicología clínica infanto-juvenil con cursos, ebooks y consultas 100% online.",
     },
   ];
 
