@@ -642,6 +642,22 @@ function Portfolio() {
       category: "Fotografía de Eventos",
       desc: "Web vibrante de fotografía profesional para fiestas y eventos.",
     },
+    {
+      name: "Cocoroma",
+      url: "https://www.cocoroma.com",
+      domain: "www.cocoroma.com",
+      image: "/__mockup/images/cocoroma.png",
+      category: "Moda Femenina",
+      desc: "Tienda online de moda femenina con catálogo de colecciones y carrito de compras.",
+    },
+    {
+      name: "Coi Infantil VE",
+      url: "https://coinfantilve.com",
+      domain: "coinfantilve.com",
+      image: "/__mockup/images/coinfantilve.svg",
+      category: "Entretenimiento Infantil",
+      desc: "Plataforma de entretenimiento y moda infantil venezolana.",
+    },
   ];
 
   const [active, setActive] = useState<number | null>(null);
