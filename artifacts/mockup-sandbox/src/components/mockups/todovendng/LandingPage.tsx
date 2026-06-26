@@ -647,8 +647,8 @@ function Portfolio() {
       url: "https://www.cocoroma.com",
       domain: "www.cocoroma.com",
       image: "/__mockup/images/cocoroma.png",
-      category: "Restaurante / Gastronomía",
-      desc: "Sitio web gastronómico con menú digital, galería y reservas en línea.",
+      category: "Moda Femenina",
+      desc: "Tienda online de moda femenina con catálogo de colecciones y carrito de compras.",
     },
     {
       name: "Psico Infantil VE",
