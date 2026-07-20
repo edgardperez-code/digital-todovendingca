@@ -24,6 +24,7 @@ import {
   Coins,
   ArrowRightLeft,
   Clock,
+  Quote,
 } from "lucide-react";
 
 function useScrollAnimation() {
@@ -768,6 +769,65 @@ function Portfolio() {
   );
 }
 
+function Testimonials() {
+  const testimonials = [
+    {
+      quote:
+        "La creación de la página fue muy rápido, nos contactan mucho desde la página y hasta la inteligencia artificial nos menciona. 100% recomendados.",
+      name: "Incalca",
+      role: "Empresa Industrial",
+      href: "https://www.incalca.com",
+    },
+    {
+      quote:
+        "Todo fue muy rápido, ellos mismos me tomaron las fotos y se encargaron de todo. Son muy buenos en lo que hacen.",
+      name: "Cocoroma",
+      role: "Moda Femenina",
+      href: "https://www.cocoroma.com",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-slate-900 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            Clientes
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Lo que dicen nuestros clientes
+          </h2>
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Negocios reales que ya trabajan con nosotros.
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map(({ quote, name, role, href }, i) => (
+            <AnimatedSection key={name} delay={i * 120}>
+              <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-8 h-full flex flex-col">
+                <Quote className="w-8 h-8 text-blue-400/40 mb-4 flex-shrink-0" />
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 flex-1">
+                  "{quote}"
+                </p>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-bold text-sm hover:text-blue-400 transition-colors"
+                >
+                  {name}
+                </a>
+                <span className="text-slate-500 text-xs">{role}</span>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PaymentMethods() {
   const methods = [
     { icon: Smartphone, name: "Pago Móvil" },
@@ -931,6 +991,7 @@ export function Home() {
       <Subscription />
       <Pricing />
       <Portfolio />
+      <Testimonials />
       <PaymentMethods />
       <Coverage />
       <FAQ />
