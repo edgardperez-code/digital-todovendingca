@@ -1,30 +1,34 @@
 # TodoVending Digital
 
-> Agencia de desarrollo web en Lechería, Anzoátegui, Venezuela. Creamos páginas web profesionales, tiendas online conectadas a WhatsApp y soluciones e-commerce a la medida con métodos de pago venezolanos (Pago Móvil, Zelle, transferencia bancaria). Precios desde $349.
+> Agencia de desarrollo web en Lechería, Anzoátegui, Venezuela. Creamos páginas web profesionales, tiendas online conectadas a WhatsApp y soluciones e-commerce a la medida con métodos de pago venezolanos (Pago Móvil, Zelle, Binance, transferencia bancaria). Precios desde $349.
 
 ## Servicios
 
-- Web Presencial (landing page profesional, diseño responsivo, botón de WhatsApp flotante, formulario inteligente): desde $349. Ideal para doctores y emprendedores.
-- Tienda Digital (catálogo dinámico de productos, carrito conectado a WhatsApp, panel de inventario): desde $549. Ideal para tiendas de ropa y catálogos.
-- E-commerce Pro (registro de usuarios, filtros avanzados, reseñas y estadísticas): desde $749. Ideal para empresas consolidadas.
+- Web Presencial (landing page profesional, diseño responsivo, botón de WhatsApp flotante, formulario inteligente): desde $349. Entrega en 2 a 4 días hábiles. Ideal para doctores y emprendedores.
+- Tienda Digital (catálogo dinámico de productos, carrito conectado a WhatsApp, panel de inventario): desde $549. Entrega en 6 a 7 días hábiles. Ideal para tiendas de ropa y catálogos.
+- E-commerce Pro (registro de usuarios, filtros avanzados, reseñas y estadísticas): desde $749. Entrega en 8 a 10 días hábiles. Ideal para empresas consolidadas.
 - Plan de Evolución Continua (soporte, modificaciones mensuales, SEO, posicionamiento local GEO e inteligencia artificial optimizada IAO): desde $35 a $50 al mes.
 
 Todos los proyectos inician con solo un 50% de anticipo. Las ventas por WhatsApp no generan comisiones de pasarelas de pago externas.
 
 ## Zona de cobertura
 
-Lechería, Anzoátegui, Venezuela. Trabajamos con clínicas, doctores, tiendas de ropa, restaurantes, empresas industriales y emprendedores en todo el país.
+Presencial en Lechería, Barcelona y Puerto La Cruz, Anzoátegui. Remoto en todo el resto de Venezuela y el exterior. Trabajamos con clínicas, doctores, tiendas de ropa, restaurantes, empresas industriales y emprendedores.
 
 ## Contacto
 
 - WhatsApp: +58 412-0836206 (https://wa.me/584120836206)
 - Correo: admin@todovendingca.com
+- Instagram: @todovendingca (https://instagram.com/todovendingca)
 - Dirección: Centro Comercial Venezuela, Local 11, calle Nueva Esparta, Lechería, Anzoátegui, Venezuela
 - Web: https://digital.todovendingca.com
 - Empresa matriz: TodoVending, C.A. (https://www.todovendingca.com)
 
 ## Páginas
 
-- [Inicio](https://digital.todovendingca.com/) — incluye servicios, planes, portafolio de proyectos y preguntas frecuentes.
-
-Nota: el sitio ampliará próximamente su catálogo de páginas internas (portafolio extendido, páginas por servicio y precios). Este archivo se actualizará cuando existan.
+- [Inicio](https://digital.todovendingca.com/) — servicios, planes, portafolio y preguntas frecuentes.
+- [Desarrollo web en Lechería](https://digital.todovendingca.com/desarrollo-web-lecheria) — páginas web para negocios de Lechería, Barcelona y Puerto La Cruz.
+- [Tienda online con WhatsApp](https://digital.todovendingca.com/tienda-online-whatsapp) — tiendas con carrito conectado a WhatsApp y pagos venezolanos.
+- [E-commerce en Venezuela](https://digital.todovendingca.com/ecommerce-venezuela) — e-commerce completo con Pago Móvil, Zelle y Binance.
+- [Portafolio](https://digital.todovendingca.com/portafolio) — proyectos reales desarrollados por TodoVending Digital.
+- [Precios](https://digital.todovendingca.com/precios) — tabla completa de planes y precios.

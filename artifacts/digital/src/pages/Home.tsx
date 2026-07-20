@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "wouter";
+import { usePageMeta } from "@/hooks/use-page-meta";
 import {
   Code2,
   Settings2,
@@ -7,8 +9,6 @@ import {
   ChevronRight,
   Check,
   Star,
-  Menu,
-  X,
   Globe,
   Search,
   MapPin,
@@ -19,6 +19,11 @@ import {
   ArrowUpRight,
   HelpCircle,
   ChevronDown,
+  Landmark,
+  Smartphone,
+  Coins,
+  ArrowRightLeft,
+  Clock,
 } from "lucide-react";
 
 function useScrollAnimation() {
@@ -32,7 +37,7 @@ function useScrollAnimation() {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -64,90 +69,6 @@ function AnimatedSection({
   );
 }
 
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const links = ["Inicio", "Servicios", "Planes", "Suscripción", "FAQ"];
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg shadow-black/30 border-b border-slate-800"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-1 text-xl font-bold tracking-tight select-none">
-            <span className="text-white">TodoVending</span>
-            <span className="text-blue-400"> Digital</span>
-          </a>
-
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
-                className="text-slate-300 hover:text-white text-sm font-medium transition-colors duration-200 relative group"
-              >
-                {l}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-blue-400 group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
-          </div>
-
-          <div className="hidden md:block">
-            <a
-              href="https://wa.me/584120836206"
-              className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 hover:-translate-y-0.5"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Cotizar por WhatsApp
-            </a>
-          </div>
-
-          <button
-            className="md:hidden text-slate-300 hover:text-white"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <div className="md:hidden bg-slate-900/98 backdrop-blur-md border-t border-slate-800 px-4 py-4 flex flex-col gap-4">
-          {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
-              className="text-slate-300 hover:text-white text-sm font-medium py-1"
-              onClick={() => setOpen(false)}
-            >
-              {l}
-            </a>
-          ))}
-          <a
-            href="https://wa.me/584120836206"
-            className="inline-flex items-center justify-center gap-2 bg-green-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg"
-          >
-            <MessageCircle className="w-4 h-4" />
-            Cotizar por WhatsApp
-          </a>
-        </div>
-      )}
-    </nav>
-  );
-}
-
 function Hero() {
   return (
     <section
@@ -171,39 +92,41 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
         <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
           <Zap className="w-3.5 h-3.5" />
-          Agencia de Desarrollo Web
+          Agencia de Desarrollo Web en Lechería
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
-          Lleva tu negocio al{" "}
+          Desarrollo de Páginas Web en{" "}
           <span className="relative">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              siguiente nivel
+              Lechería y Anzoátegui
             </span>
-          </span>{" "}
-          digital.
+          </span>
         </h1>
 
         <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           En TodoVending Digital construimos tu sucursal más rentable: tu página web.
-          Diseños rápidos, modernos y optimizados para vender.
+          Diseños rápidos, modernos y optimizados para vender, desde{" "}
+          <span className="text-white font-semibold">$349</span>.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#planes"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-900/50 hover:shadow-blue-500/40 hover:-translate-y-0.5 group"
+            href="https://wa.me/584120836206?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20para%20mi%20negocio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 hover:-translate-y-0.5"
           >
-            Ver Planes
-            <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <MessageCircle className="w-4 h-4" />
+            Cotizar por WhatsApp
           </a>
-          <a
-            href="https://wa.me/584120836206"
+          <Link
+            href="/portafolio"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
           >
-            <MessageCircle className="w-4 h-4 text-green-400" />
-            Contáctanos
-          </a>
+            Ver portafolio
+            <ChevronRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-500 text-sm">
@@ -233,6 +156,7 @@ function Features() {
       glow: "group-hover:shadow-blue-500/20",
       accent: "text-blue-400",
       accentBg: "bg-blue-500/15",
+      link: { href: "/desarrollo-web-lecheria", label: "Ver página de desarrollo web" },
       detail: {
         intro:
           "No hacemos plantillas genéricas. Estudiamos tu negocio, tu competencia y a tu cliente ideal para construir una página web que trabaje para ti las 24 horas. Cada sección, color y botón está pensado con un objetivo: convertir visitantes en clientes reales.",
@@ -275,12 +199,12 @@ function Features() {
       accentBg: "bg-cyan-500/15",
       detail: {
         intro:
-          "Aplicamos inteligencia artificial y las mejores prácticas de optimización para que tu web cargue en segundos y ofrezca una experiencia impecable. Una página rápida no solo gusta más: posiciona mejor en Google y vende más.",
+          "Aplicamos inteligencia artificial y las mejores prácticas de optimización para que tu web cargue en segundos y ofrezca una experiencia impecable. Una página rápida no solo gusta más: posiciona mejor en Google y en los motores de búsqueda con IA, y vende más.",
         points: [
           "Optimización de velocidad de carga en todos los dispositivos",
           "Imágenes y recursos comprimidos sin perder calidad",
           "Experiencia de usuario fluida e intuitiva",
-          "Mejora continua basada en datos y comportamiento real",
+          "Contenido estructurado para que ChatGPT, Claude y Gemini entiendan tu negocio",
           "Tecnología de vanguardia que mantiene tu web a la última",
         ],
       },
@@ -293,6 +217,7 @@ function Features() {
       glow: "group-hover:shadow-green-500/20",
       accent: "text-green-400",
       accentBg: "bg-green-500/15",
+      link: { href: "/tienda-online-whatsapp", label: "Ver página de tienda online" },
       detail: {
         intro:
           "Vende directo, sin intermediarios y sin pagar comisiones a pasarelas externas. Tus clientes arman su carrito en la web y el pedido te llega a WhatsApp listo para coordinar el pago como tú prefieras: transferencia, Pago Móvil o Zelle.",
@@ -383,7 +308,7 @@ function Features() {
                 className="absolute top-4 right-4 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-black/20 hover:bg-black/35 text-white transition-colors"
                 aria-label="Cerrar"
               >
-                <X className="w-5 h-5" />
+                ✕
               </button>
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm mb-4">
                 <CurrentIcon className="w-7 h-7 text-white" />
@@ -410,144 +335,30 @@ function Features() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="https://wa.me/584120836206"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 text-sm"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Consultar por WhatsApp
-              </a>
+              <div className="flex flex-col gap-3">
+                {current.link && (
+                  <Link
+                    href={current.link.href}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white font-semibold py-3 rounded-xl transition-all duration-200 text-sm"
+                  >
+                    {current.link.label}
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                )}
+                <a
+                  href="https://wa.me/584120836206"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/40 hover:shadow-green-500/30 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Consultar por WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
       )}
-    </section>
-  );
-}
-
-function Pricing() {
-  const plans = [
-    {
-      name: "Web Presencial",
-      price: "$349",
-      ideal: "Doctores y emprendedores",
-      featured: false,
-      features: [
-        "Landing page profesional",
-        "Diseño 100% responsivo",
-        "Botón WhatsApp flotante",
-        "Formulario inteligente",
-      ],
-    },
-    {
-      name: "Tienda Digital",
-      price: "$549",
-      ideal: "Tiendas de ropa y catálogos",
-      featured: true,
-      features: [
-        "Todo el plan Presencial",
-        "Catálogo dinámico de productos",
-        "Carrito conectado a WhatsApp",
-        "Panel de inventario",
-      ],
-    },
-    {
-      name: "E-commerce Pro",
-      price: "$749",
-      ideal: "Empresas consolidadas",
-      featured: false,
-      features: [
-        "Todo el plan Tienda Digital",
-        "Registro de usuarios",
-        "Filtros avanzados",
-        "Reseñas y estadísticas",
-      ],
-    },
-  ];
-
-  return (
-    <section id="planes" className="py-24 bg-slate-950 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-6">
-          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
-            Inversión
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Nuestros Planes
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Elige el plan que mejor se adapte a tu negocio y comienza a crecer hoy.
-          </p>
-        </AnimatedSection>
-
-        <AnimatedSection delay={100} className="mb-10">
-          <div className="flex items-center justify-center gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-6 py-3 max-w-md mx-auto">
-            <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
-            <p className="text-blue-300 text-sm text-center font-medium">
-              Todos los proyectos inician con solo un{" "}
-              <strong className="text-white">50% de anticipo</strong>.
-            </p>
-          </div>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {plans.map(({ name, price, ideal, featured, features }, i) => (
-            <AnimatedSection key={name} delay={i * 120}>
-              <div
-                className={`relative rounded-2xl p-8 h-full transition-all duration-300 hover:-translate-y-1 ${
-                  featured
-                    ? "bg-gradient-to-b from-blue-600/20 to-slate-800/80 border-2 border-blue-500 shadow-xl shadow-blue-900/30"
-                    : "bg-slate-800/60 border border-slate-700/50 hover:border-slate-600"
-                }`}
-              >
-                {featured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
-                      <Star className="w-3 h-3 fill-current" />
-                      Más Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <h3 className="text-white font-extrabold text-xl mb-1">{name}</h3>
-                  <p className="text-slate-400 text-sm">Ideal para: {ideal}</p>
-                </div>
-
-                <div className="mb-6">
-                  <span className="text-4xl font-extrabold text-white">{price}</span>
-                </div>
-
-                <ul className="space-y-3 mb-8">
-                  {features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                      <div className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${featured ? "bg-blue-500" : "bg-slate-700"}`}>
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://wa.me/584120836206"
-                  className={`w-full inline-flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-200 text-sm ${
-                    featured
-                      ? "bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-900/50 hover:shadow-blue-500/40"
-                      : "bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white"
-                  }`}
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Solicitar Plan
-                </a>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
@@ -612,6 +423,160 @@ function Subscription() {
               Suscribirme Ahora
             </a>
           </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+function Pricing() {
+  const plans = [
+    {
+      name: "Web Presencial",
+      price: "$349",
+      ideal: "Doctores y emprendedores",
+      delivery: "Entrega en 2 a 4 días hábiles",
+      featured: false,
+      href: "/desarrollo-web-lecheria",
+      features: [
+        "Landing page profesional",
+        "Diseño 100% responsivo",
+        "Botón WhatsApp flotante",
+        "Formulario inteligente",
+      ],
+    },
+    {
+      name: "Tienda Digital",
+      price: "$549",
+      ideal: "Tiendas de ropa y catálogos",
+      delivery: "Entrega en 6 a 7 días hábiles",
+      featured: true,
+      href: "/tienda-online-whatsapp",
+      features: [
+        "Todo el plan Presencial",
+        "Catálogo dinámico de productos",
+        "Carrito conectado a WhatsApp",
+        "Panel de inventario",
+      ],
+    },
+    {
+      name: "E-commerce Pro",
+      price: "$749",
+      ideal: "Empresas consolidadas",
+      delivery: "Entrega en 8 a 10 días hábiles",
+      featured: false,
+      href: "/ecommerce-venezuela",
+      features: [
+        "Todo el plan Tienda Digital",
+        "Registro de usuarios",
+        "Filtros avanzados",
+        "Reseñas y estadísticas",
+      ],
+    },
+  ];
+
+  return (
+    <section id="planes" className="py-24 bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-6">
+          <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+            Inversión
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Nuestros Planes
+          </h2>
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Elige el plan que mejor se adapte a tu negocio y comienza a crecer hoy.
+          </p>
+        </AnimatedSection>
+
+        <AnimatedSection delay={100} className="mb-10">
+          <div className="flex items-center justify-center gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-6 py-3 max-w-md mx-auto">
+            <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
+            <p className="text-blue-300 text-sm text-center font-medium">
+              Todos los proyectos inician con solo un{" "}
+              <strong className="text-white">50% de anticipo</strong>.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          {plans.map(({ name, price, ideal, delivery, featured, href, features }, i) => (
+            <AnimatedSection key={name} delay={i * 120}>
+              <div
+                className={`relative rounded-2xl p-8 h-full transition-all duration-300 hover:-translate-y-1 ${
+                  featured
+                    ? "bg-gradient-to-b from-blue-600/20 to-slate-800/80 border-2 border-blue-500 shadow-xl shadow-blue-900/30"
+                    : "bg-slate-800/60 border border-slate-700/50 hover:border-slate-600"
+                }`}
+              >
+                {featured && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span className="inline-flex items-center gap-1 bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                      <Star className="w-3 h-3 fill-current" />
+                      Más Popular
+                    </span>
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <h3 className="text-white font-extrabold text-xl mb-1">{name}</h3>
+                  <p className="text-slate-400 text-sm">Ideal para: {ideal}</p>
+                </div>
+
+                <div className="mb-2">
+                  <span className="text-4xl font-extrabold text-white">{price}</span>
+                </div>
+                <p className="flex items-center gap-1.5 text-slate-500 text-xs mb-6">
+                  <Clock className="w-3.5 h-3.5" />
+                  {delivery}
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  {features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
+                      <div className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${featured ? "bg-blue-500" : "bg-slate-700"}`}>
+                        <Check className="w-2.5 h-2.5 text-white" />
+                      </div>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="https://wa.me/584120836206"
+                    className={`w-full inline-flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-200 text-sm ${
+                      featured
+                        ? "bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-900/50 hover:shadow-blue-500/40"
+                        : "bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white"
+                    }`}
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Solicitar Plan
+                  </a>
+                  <Link
+                    href={href}
+                    className="w-full inline-flex items-center justify-center gap-1.5 text-blue-400 hover:text-blue-300 text-xs font-semibold py-1"
+                  >
+                    Conocer más
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <AnimatedSection delay={200} className="text-center mt-10">
+          <Link
+            href="/precios"
+            className="inline-flex items-center gap-1.5 text-slate-400 hover:text-blue-400 text-sm font-medium transition-colors"
+          >
+            Ver tabla completa de precios
+            <ChevronRight className="w-4 h-4" />
+          </Link>
         </AnimatedSection>
       </div>
     </section>
@@ -734,6 +699,16 @@ function Portfolio() {
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection delay={200} className="text-center mt-12">
+          <Link
+            href="/portafolio"
+            className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors"
+          >
+            Ver portafolio completo
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </AnimatedSection>
       </div>
 
       {current && (
@@ -741,9 +716,9 @@ function Portfolio() {
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
           onClick={() => setActive(null)}
         >
-          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm animate-[fadeIn_0.2s_ease-out]" />
+          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm" />
           <div
-            className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden flex flex-col animate-[fadeIn_0.25s_ease-out]"
+            className="relative z-10 w-full max-w-5xl max-h-[90vh] bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-slate-700 bg-slate-800/95 flex-shrink-0">
@@ -773,7 +748,7 @@ function Portfolio() {
                   className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 hover:text-white transition-colors"
                   aria-label="Cerrar"
                 >
-                  <X className="w-5 h-5" />
+                  ✕
                 </button>
               </div>
             </div>
@@ -793,6 +768,74 @@ function Portfolio() {
   );
 }
 
+function PaymentMethods() {
+  const methods = [
+    { icon: Smartphone, name: "Pago Móvil" },
+    { icon: ArrowRightLeft, name: "Transferencia bancaria" },
+    { icon: Landmark, name: "Zelle" },
+    { icon: Coins, name: "Binance (USDT)" },
+  ];
+
+  return (
+    <section className="py-20 bg-slate-950 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+          Métodos de pago
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          Paga como pagas todo en Venezuela
+        </h2>
+        <p className="text-slate-400 max-w-xl mx-auto mb-10">
+          Coordinamos el pago de tu proyecto directamente contigo, sin pasarelas externas ni comisiones ocultas.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          {methods.map(({ icon: Icon, name }) => (
+            <div
+              key={name}
+              className="flex flex-col items-center gap-3 bg-slate-800/60 border border-slate-700/50 rounded-xl px-4 py-6"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center">
+                <Icon className="w-5 h-5 text-blue-400" />
+              </div>
+              <span className="text-slate-300 text-sm font-medium text-center">{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Coverage() {
+  return (
+    <section id="cobertura" className="py-20 bg-slate-900 relative overflow-hidden">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+          Zona de cobertura
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+          Atendemos Lechería, Barcelona y Puerto La Cruz
+        </h2>
+        <p className="text-slate-400 leading-relaxed mb-8">
+          Estamos ubicados en el Centro Comercial Venezuela, Local 11, calle Nueva Esparta,
+          Lechería, Anzoátegui. Atendemos de forma presencial a negocios de Lechería, Barcelona
+          y Puerto La Cruz, y trabajamos de forma remota con clientes de todo el estado
+          Anzoátegui, el resto de Venezuela y el exterior.
+        </p>
+        <a
+          href="https://maps.app.goo.gl/JuHxKWCBBZS8tYwS9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold"
+        >
+          <MapPin className="w-4 h-4" />
+          Centro Comercial Venezuela, Local 11, calle Nueva Esparta, Lechería, Anzoátegui
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function FAQ() {
   const faqs = [
     {
@@ -808,12 +851,16 @@ function FAQ() {
       a: "No. Las ventas se gestionan directamente por WhatsApp, así que no pagas comisiones de pasarelas de pago externas por ninguna transacción.",
     },
     {
+      q: "¿Cuánto tarda el desarrollo de una página web?",
+      a: "El plan Web Presencial se entrega en 2 a 4 días hábiles, la Tienda Digital en 6 a 7 días hábiles y el E-commerce Pro en 8 a 10 días hábiles, según los módulos que necesite tu negocio.",
+    },
+    {
       q: "¿Ofrecen mantenimiento y actualizaciones de la página web?",
       a: "Sí. El Plan de Evolución Continua, desde $35 a $50 al mes, incluye soporte, modificaciones mensuales, SEO, posicionamiento local (GEO) e inteligencia artificial optimizada (IAO).",
     },
     {
-      q: "¿Qué tipos de negocios atiende TodoVending Digital?",
-      a: "Trabajamos con clínicas, doctores, tiendas de ropa, restaurantes, empresas industriales y emprendedores. Cada web se diseña a medida según el sector y el público objetivo del negocio.",
+      q: "¿Atienden solo en Lechería o en toda Venezuela?",
+      a: "Estamos ubicados en Lechería, Anzoátegui, y atendemos presencialmente Lechería, Barcelona y Puerto La Cruz. Trabajamos de forma remota con clientes de toda Venezuela y del exterior.",
     },
     {
       q: "¿Cómo solicito una cotización?",
@@ -871,113 +918,22 @@ function FAQ() {
   );
 }
 
-function Footer() {
-  const quickLinks = ["Inicio", "Servicios", "Planes", "Suscripción", "FAQ"];
-
-  return (
-    <footer className="bg-slate-950 border-t border-slate-800 pt-14 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-          <div>
-            <div className="text-xl font-bold mb-3">
-              <span className="text-white">TodoVending</span>
-              <span className="text-blue-400"> Digital</span>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Tu aliado estratégico en el mundo digital. Construimos presencias web que generan resultados reales.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Enlaces Rápidos
-            </h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map((l) => (
-                <li key={l}>
-                  <a
-                    href={`#${l.toLowerCase()}`}
-                    className="text-slate-400 hover:text-blue-400 text-sm transition-colors duration-200"
-                  >
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Contacto
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-slate-400 text-sm">
-                <Globe className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <a href="mailto:admin@todovendingca.com" className="hover:text-blue-400 transition-colors">
-                  admin@todovendingca.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-slate-400 text-sm">
-                <MessageCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <a href="https://wa.me/584120836206" className="hover:text-green-400 transition-colors">
-                  +58 412-0836206
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-slate-400 text-sm">
-                <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                <a
-                  href="https://maps.app.goo.gl/JuHxKWCBBZS8tYwS9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  Centro Comercial Venezuela, Local 11, calle Nueva Esparta, Lechería, Anzoátegui, Venezuela
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-4 text-center">
-          <p className="text-slate-500 text-xs leading-relaxed">
-            © 2026 TodoVending C.A. — División de Soluciones Digitales. Todos los derechos reservados.
-          </p>
-          <a
-            href="https://digital.todovendingca.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/60 px-4 py-2 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-800 hover:shadow-lg hover:shadow-blue-900/20"
-          >
-            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-sm">
-              <Globe className="h-3 w-3 text-white" />
-            </span>
-            <span className="text-xs text-slate-400 transition-colors group-hover:text-slate-300">
-              Página web creada por{" "}
-              <span className="font-semibold text-blue-400 group-hover:text-blue-300">
-                Digital.TodoVendingca.com
-              </span>
-            </span>
-            <ExternalLink className="h-3 w-3 flex-shrink-0 text-slate-600 transition-colors group-hover:text-blue-400" />
-          </a>
-        </div>
-      </div>
-    </footer>
+export function Home() {
+  usePageMeta(
+    "Desarrollo de Páginas Web en Lechería y Anzoátegui desde $349 | TodoVending Digital",
+    "Agencia de desarrollo web en Lechería, Anzoátegui (Venezuela). Creamos páginas web, tiendas online conectadas a WhatsApp y e-commerce a la medida desde $349.",
   );
-}
 
-export function LandingPage() {
   return (
-    <div className="bg-slate-900 min-h-screen font-sans antialiased">
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Subscription />
-        <Pricing />
-        <Portfolio />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <Subscription />
+      <Pricing />
+      <Portfolio />
+      <PaymentMethods />
+      <Coverage />
+      <FAQ />
+    </>
   );
 }
