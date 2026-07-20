@@ -5,9 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "vite build --config vite.config.ts",
+    "build:client": "vite build --config vite.config.ts --outDir dist/public",
+    "build:server": "vite build --config vite.config.ts --ssr src/entry-server.tsx --outDir dist/server",
+    "prerender": "node server/prerender.mjs",
+    "build": "pnpm run build:client && pnpm run build:server && pnpm run prerender",
+    "start": "node server/serve.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
