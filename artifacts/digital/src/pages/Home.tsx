@@ -93,21 +93,21 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
         <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
           <Zap className="w-3.5 h-3.5" />
-          Agencia de Desarrollo Web en Venezuela
+          Agencia de Desarrollo Web · Venezuela
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
-          Desarrollo de Páginas Web en{" "}
+          Desarrollo de Páginas Web{" "}
           <span className="relative">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              toda Venezuela
+              que Venden
             </span>
           </span>
         </h1>
 
         <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          En TodoVending Digital construimos tu sucursal más rentable: tu página web.
-          Atendemos negocios en todo el país, con base en Lechería, Anzoátegui, desde{" "}
+          Tu página web es tu sucursal más rentable: abierta 24/7 para captar clientes
+          en toda Venezuela. Diseño profesional, entrega rápida y sin comisiones, desde{" "}
           <span className="text-white font-semibold">$349</span>.
         </p>
 
@@ -257,7 +257,7 @@ function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <span className="inline-block text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
-            Lo que hacemos
+            Nuestros servicios
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             ¿Qué Hacemos?
@@ -590,7 +590,7 @@ function Portfolio() {
       name: "Incalca",
       url: "https://www.incalca.com",
       domain: "www.incalca.com",
-      image: `${import.meta.env.BASE_URL}images/incalca.png`,
+      image: `${import.meta.env.BASE_URL}images/incalca.webp`,
       category: "Empresa Industrial",
       desc: "Sitio corporativo para una empresa especialista en intercambiadores de calor y calderas.",
     },
@@ -598,7 +598,7 @@ function Portfolio() {
       name: "TodoVending CA",
       url: "https://www.todovendingca.com",
       domain: "www.todovendingca.com",
-      image: `${import.meta.env.BASE_URL}images/todovendingca.png`,
+      image: `${import.meta.env.BASE_URL}images/todovendingca.webp`,
       category: "Soluciones Vending",
       desc: "Plataforma moderna para soluciones integrales en máquinas vending.",
     },
@@ -606,7 +606,7 @@ function Portfolio() {
       name: "Fotos Party",
       url: "https://www.fotosparty.com",
       domain: "www.fotosparty.com",
-      image: `${import.meta.env.BASE_URL}images/fotosparty.png`,
+      image: `${import.meta.env.BASE_URL}images/fotosparty.webp`,
       category: "Fotografía de Eventos",
       desc: "Web vibrante de fotografía profesional para fiestas y eventos.",
     },
@@ -614,7 +614,7 @@ function Portfolio() {
       name: "Cocoroma",
       url: "https://www.cocoroma.com",
       domain: "www.cocoroma.com",
-      image: `${import.meta.env.BASE_URL}images/cocoroma.png`,
+      image: `${import.meta.env.BASE_URL}images/cocoroma.webp`,
       category: "Moda Femenina",
       desc: "Tienda online de moda femenina con catálogo de colecciones y carrito de compras.",
     },
@@ -622,7 +622,7 @@ function Portfolio() {
       name: "Psico Infantil VE",
       url: "https://www.psicoinfantilve.com",
       domain: "www.psicoinfantilve.com",
-      image: `${import.meta.env.BASE_URL}images/psicoinfantilve.png`,
+      image: `${import.meta.env.BASE_URL}images/psicoinfantilve.webp`,
       category: "Psicología Infantil",
       desc: "Plataforma de psicología clínica infanto-juvenil con cursos, ebooks y consultas 100% online.",
     },
@@ -935,7 +935,7 @@ function FAQ() {
         <AnimatedSection className="text-center mb-14">
           <span className="inline-flex items-center gap-1.5 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
-            Preguntas Frecuentes
+            Resolvemos tus dudas
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             Preguntas Frecuentes
