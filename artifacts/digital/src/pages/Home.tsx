@@ -93,21 +93,21 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
         <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
           <Zap className="w-3.5 h-3.5" />
-          Agencia de Desarrollo Web en Lechería
+          Agencia de Desarrollo Web en Venezuela
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
           Desarrollo de Páginas Web en{" "}
           <span className="relative">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Lechería y Anzoátegui
+              toda Venezuela
             </span>
           </span>
         </h1>
 
         <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           En TodoVending Digital construimos tu sucursal más rentable: tu página web.
-          Diseños rápidos, modernos y optimizados para vender, desde{" "}
+          Atendemos negocios en todo el país, con base en Lechería, Anzoátegui, desde{" "}
           <span className="text-white font-semibold">$349</span>.
         </p>
 
@@ -874,13 +874,13 @@ function Coverage() {
           Zona de cobertura
         </span>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6">
-          Atendemos Lechería, Barcelona y Puerto La Cruz
+          Atendemos a Todo Venezuela
         </h2>
         <p className="text-slate-400 leading-relaxed mb-8">
-          Estamos ubicados en el Centro Comercial Venezuela, Local 11, calle Nueva Esparta,
-          Lechería, Anzoátegui. Atendemos de forma presencial a negocios de Lechería, Barcelona
-          y Puerto La Cruz, y trabajamos de forma remota con clientes de todo el estado
-          Anzoátegui, el resto de Venezuela y el exterior.
+          Trabajamos de forma remota con negocios de todo el país y del exterior. Además, tenemos
+          presencia física en el Centro Comercial Venezuela, Local 11, calle Nueva Esparta,
+          Lechería, Anzoátegui, desde donde atendemos también de forma presencial a Lechería,
+          Barcelona y Puerto La Cruz.
         </p>
         <a
           href="https://maps.app.goo.gl/JuHxKWCBBZS8tYwS9"
@@ -980,8 +980,8 @@ function FAQ() {
 
 export function Home() {
   usePageMeta(
-    "Desarrollo de Páginas Web en Lechería y Anzoátegui desde $349 | TodoVending Digital",
-    "Agencia de desarrollo web en Lechería, Anzoátegui (Venezuela). Creamos páginas web, tiendas online conectadas a WhatsApp y e-commerce a la medida desde $349.",
+    "Desarrollo de Páginas Web en Venezuela desde $349 | TodoVending Digital",
+    "Agencia de desarrollo web en Venezuela, con base en Lechería, Anzoátegui. Creamos páginas web, tiendas online conectadas a WhatsApp y e-commerce a la medida desde $349.",
   );
 
   return (

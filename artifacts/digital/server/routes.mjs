@@ -81,9 +81,9 @@ export const routes = [
     path: "/",
     changefreq: "weekly",
     priority: "1.0",
-    title: "Desarrollo de Páginas Web en Lechería y Anzoátegui desde $349 | TodoVending Digital",
+    title: "Desarrollo de Páginas Web en Venezuela desde $349 | TodoVending Digital",
     description:
-      "Agencia de desarrollo web en Lechería, Anzoátegui (Venezuela). Creamos páginas web, tiendas online conectadas a WhatsApp y e-commerce a la medida desde $349.",
+      "Agencia de desarrollo web en Venezuela, con base en Lechería, Anzoátegui. Creamos páginas web, tiendas online conectadas a WhatsApp y e-commerce a la medida desde $349.",
     jsonLd: [faqJsonLd],
   },
   {
